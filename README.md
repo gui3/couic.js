@@ -20,7 +20,7 @@ with a few useful function **inspired by Ruby syntax**
   // do stuff 7 times
 });
 
-(5).upTo(10); // returns an array from 5 to 15
+(5).upTo(10); // returns an array from 5 to 10
 
 (3).upTo(33, (n, ix)=>{ // to loop only ONCE
   // do stuff with n from 3 to 33
