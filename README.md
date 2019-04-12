@@ -13,8 +13,8 @@ with a few useful function **inspired by Ruby syntax**
 
 ```js
 
-"milk".justifyL(10,"."); // "......milk"
-"milk".justifyR(10,"~"); // "milk~~~~~~"
+"milk".justifyR(10,"."); // "......milk"
+"milk".justifyL(10,"~"); // "milk~~~~~~"
 
 (7).times(function (n) {
   // do stuff 7 times
