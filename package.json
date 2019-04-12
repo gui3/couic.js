@@ -1,0 +1,24 @@
+{
+  "name": "couic",
+  "version": "0.0.2",
+  "description": "code fast and QUICK with a few new primitive methods !",
+  "main": "couic.js",
+  "scripts": {
+    "test": "node tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gui3/couic.js.git"
+  },
+  "keywords": [
+    "methods",
+    "easy",
+    "ruby-style"
+  ],
+  "author": "gui3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gui3/couic.js/issues"
+  },
+  "homepage": "https://github.com/gui3/couic.js#readme"
+}
