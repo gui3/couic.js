@@ -1,10 +1,10 @@
 {
   "name": "couic",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "code fast and QUICK with a few new primitive methods !",
   "main": "couic.js",
   "scripts": {
-    "test": "node tests/test.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -15,6 +15,9 @@
     "easy",
     "ruby-style"
   ],
+  "devDependencies" : {
+    "mocha" : "~6.1"
+  },
   "author": "gui3",
   "license": "ISC",
   "bugs": {

@@ -8,33 +8,40 @@ Primitive methods to do QUICK jobs
 
 ### methods
 
-For now, **couic** extends Number, String, Array and Object
+For now, couic extends **Number, String, Array and Object**
 with a few useful function **inspired by Ruby syntax**
 
 ```js
 
+
 "milk".justifyR(10,"."); // "......milk"
 "milk".justifyL(10,"~"); // "milk~~~~~~"
 
-(7).times(function (n) {
-  // do stuff 7 times
+(7).times(function (i) {
+  // do stuff with i 7 times
 });
 
-(5).upTo(10); // returns an array from 5 to 10
+(5).upTo(10); // returns an Iterator object
 
-(3).upTo(33, (n, ix)=>{ // to loop only ONCE
-  // do stuff with n from 3 to 33
-  // or with ix from 0 to 30
+(3).upTo(33).map(); // returns an array from 3 to 33
+[...(3).upTo(33)]; // same thing, ECMA 6 style
+
+(3).upTo(33).map(function (i, ix) {
+  // returns an array mapped with the function
+  // i from 3 to 33, ix from 0 to 30
   return -n; // will MAP from -3 to -33
 });
-// if the function does not returns, or returns undefined
-// the mapped value will be n
+
+(5).upTo(15).forEach(function (i, ix) {
+  // do stuff with i and ix
+})
 
 var a = "anything (string, number, object)";
 a.log(); // console.log(a)
 
 (typeof a == "string").expect(true, "message if no match");
-//will raise an error if no match
+// will raise an error if no match
+// you can send your own Error objects as parameter
 
 "hello".forEach(l => l.log());
 /*
@@ -45,11 +52,7 @@ l
 o
 */
 
-({
-  a:5,
-  b:10,
-  c:42
-}).forEach( (key, value) => {
+({a:5, b:10, c:42}).forEach( (key, value) => {
   // do stuff with key and value
 });
 

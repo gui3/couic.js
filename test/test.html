@@ -7,20 +7,35 @@
     <title>couic tests</title>
     <style media="screen">
 html, body {
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: calibri, ubuntu, sans-serif;
 }
     </style>
   </head>
 
   <body>
 
-    <button type="button" onclick="">open the dev tools</button>
+    <button type="button" onclick="devTools();">open the dev tools</button>
+    <div id="message">
+    </div>
 
   </body>
 
   <script src="../couic.js" type="text/javascript"></script>
+  <script type="text/javascript">
+function devTools () {
+  var p = document.createElement("p");
+  p.appendChild(
+    document.createTextNode("HAHA, press F12 you lazy fellow <(°.°<)"));
+  document.getElementById("message").appendChild(p);
+};
+
+  </script>
 </html>
