@@ -19,13 +19,13 @@
       throw error;
     }
   };
-  Object.prototype.forEach = function (callback = function(){}) {
+  Object.prototype.forEach = function (callback) {
     if (this.constructor.name == "String") {
-      this.split("").forEach( (l,ix) => {
+      this.split("").forEach(function (l,ix) {
         callback(l,ix);
       });
     } else if (this.constructor.name == "Object") {
-      Object.keys(this).forEach( (k,ix) => {
+      Object.keys(this).forEach(function (k,ix) {
         callback(k,this[k],ix);
       });
     }// Array.forEach not overriden
@@ -36,6 +36,7 @@
     (length%1).expect(0,"Number.upTo : expect integer, got "+length);
     (char.constructor.name).expect(
       "String","String.justifyL : expect string, got "+char);
+    (char.length).expect(1,"String.justifyL : can only fill with one character");
     var j = length-this.length
     if (j > 0) {
       return this + char.repeat(j);
@@ -47,6 +48,7 @@
     (length%1).expect(0,"Number.upTo : expect integer, got "+length);
     (char.constructor.name).expect(
       "String","String.justifyR : expect string, got "+char);
+    (char.length).expect(1,"String.justifyR : can only fill with one character");
     var j = length-this.length
     if (j > 0) {
       return char.repeat(j) + this;
@@ -69,7 +71,7 @@
           var a = [],
             ix = 0;
           callback = callback ? callback : function (i) {return i;};
-          for (var i = st; i <= e; i += sp) {
+          for (var i = st; sp > 0 ? i <= e : i>=e; i += sp) {
             var r = callback(i,ix);
             a.push(r);
             ix ++;
@@ -78,7 +80,7 @@
         };
         this.forEach = function (callback) {
           var ix = 0;
-          for (var i = st; i <= e; i += sp) {
+          for (var i = st; sp > 0 ? i <= e : i>=e; i += sp) {
             callback(i,ix);
             ix ++;
           }
@@ -89,7 +91,10 @@
             sp = step;
           return {
             next: function() {
-              return { value: cix += sp, done: (cix > end) }
+              return {
+                value: cix += sp,
+                done: (sp > 0 ? cix > end : cix < end)
+              };
             }
           };
         };

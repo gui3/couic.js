@@ -1,6 +1,6 @@
 {
   "name": "couic",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "code fast and QUICK with a few new primitive methods !",
   "main": "couic.js",
   "scripts": {

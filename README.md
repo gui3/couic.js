@@ -26,6 +26,9 @@ with a few useful function **inspired by Ruby syntax**
 (3).upTo(33).map(); // returns an array from 3 to 33
 [...(3).upTo(33)]; // same thing, ECMA 6 style
 
+//works backwards too :
+(5).upTo(-5).map(); // [5,4,3,2,1,0,-1,-2,-3,-4,-5]
+
 (3).upTo(33).map(function (i, ix) {
   // returns an array mapped with the function
   // i from 3 to 33, ix from 0 to 30
@@ -39,7 +42,7 @@ with a few useful function **inspired by Ruby syntax**
 var a = "anything (string, number, object)";
 a.log(); // console.log(a)
 
-(typeof a == "string").expect(true, "message if no match");
+(typeof a).expect("string", "message if no match");
 // will raise an error if no match
 // you can send your own Error objects as parameter
 
